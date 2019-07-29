@@ -1,0 +1,84 @@
+CREATE DATABASE muster;
+
+CREATE TABLE Bank Details (
+
+po_branch_code int(10) PRIMARY KEY,
+
+po_code_branch_name varchar(255),
+
+current_bank_po varchar(255),
+
+branch_code varchar(255),
+
+bank_pi_name varchar(255) 
+
+); 
+
+CREATE TABLE account details (
+
+reg_date DATE,
+
+age_at_reg int(255),
+
+current_account_no int(255),
+
+account_no int(255) PRIMARY KEY
+
+);
+
+CREATE TABLE payment details (
+
+status varchar,
+
+total_payment int(255),
+
+total_cash_payments int(255),
+
+ac_credited_date DATE,
+
+pending_payment_for_muster int(255),
+
+worker_code varchar(255) PRIMARY KEY,
+
+total_to_be_paid_for_muster int(255),
+
+FOREIGN KEY(worker_code) REFERENCES personal details(worker_code)
+);
+
+CREATE TABLE personal details (
+
+worker_code varchar PRIMARY KEY,
+
+worker_name varchar(255),
+
+address varchar(255),
+
+bpl_status varchar(255),
+
+person_id varchar(255),
+
+Village_name varchar(255),
+
+gender varchar(255),
+
+hoh_name varchar(255)
+
+);
+
+CREATE TABLE Work (
+
+travel_food_expenses int,
+
+job_card_number varchar(255),
+
+wagelist_no varchar(255),
+
+average_daily_wage(255),
+
+worker_code varchar(255) PRIMARY KEY,
+
+no_day_work_muster varchar(255),
+
+FOREIGN KEY(worker_code) REFERENCES personal details(worker_code)
+
+);
